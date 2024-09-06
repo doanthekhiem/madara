@@ -7,8 +7,8 @@ use cairo_vm::types::builtin_name::BuiltinName;
 use starknet_types_core::felt::Felt;
 
 use crate::{
-    DataAvailabilityResources, DeclareTransactionReceipt, DeployAccountTransactionReceipt, Event, ExecutionResources,
-    ExecutionResult, FeePayment, InvokeTransactionReceipt, MsgToL1, PriceUnit, TransactionReceipt,
+    DeclareTransactionReceipt, DeployAccountTransactionReceipt, Event, ExecutionResources, ExecutionResult, FeePayment,
+    InvokeTransactionReceipt, L1Gas, MsgToL1, PriceUnit, TransactionReceipt,
 };
 
 fn blockifier_tx_fee_type(tx: &Transaction) -> FeeType {
@@ -134,8 +134,8 @@ pub fn from_blockifier_execution_info(res: &TransactionExecutionInfo, tx: &Trans
     }
 }
 
-impl From<GasVector> for DataAvailabilityResources {
+impl From<GasVector> for L1Gas {
     fn from(value: GasVector) -> Self {
-        DataAvailabilityResources { l1_gas: value.l1_gas as _, l1_data_gas: value.l1_data_gas as _ }
+        L1Gas { l1_gas: value.l1_gas as _, l1_data_gas: value.l1_data_gas as _ }
     }
 }

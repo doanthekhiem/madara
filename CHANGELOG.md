@@ -2,6 +2,7 @@
 
 ## Next release
 
+- feat: new crate gateway client & server
 - tests: integration test for l2 fetch task added
 - refactor: calculate class hashes in devnet
 - feat: add config file and preset configure chain
